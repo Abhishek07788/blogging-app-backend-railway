@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon src"
+    "start": "nodemon src"
   },
   "keywords": [],
   "author": "",
