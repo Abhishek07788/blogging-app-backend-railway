@@ -1,14 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const compression = require("compression");
-const DbConnect = require("../config/db");
+const dbConnect = require("../config/db");
 const NewsRoute = require("../routes/news.routes");
 const UserRoute = require("../routes/user.routes");
 const githubRoute = require("../routes/github.routes");
 const interviewRoute = require("../routes/interview.routes");
 
 const app = express();
-const port = process.env.PORT || 3000;
+let PORT =process.env.PORT || 8080;
 
 app.use(cors());
 app.use(compression());
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
   res.send("<h2>This is my blogging app<h2>");
 });
 
-app.listen(port, async () => {
-  await DbConnect();
-  console.log("stated at: http://localhost:3000");
+app.listen(PORT||8080, async () => {
+  await dbConnect();
+  console.log(`Listening on http://localhost:${PORT}`);
 });
